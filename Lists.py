@@ -17,11 +17,39 @@ now", "Cannot predict now", "Concentrate and ask again", "Don ' t \
 count on it", "My reply is no", "My sources say no", "Outlook \
 not so good", "Very doubtful" ]
 
+import random
+
+for i in range(1):
+    j = random.randrange(20)
+    print(answer_list[j])
+
+
 
 # PROBLEM 2 (Shuffle - 5pts)
 # A playing card consists of a suit (Heart, Diamond, Club, Spade) and a value (2,3,4,5,6,7,8,9,10,J,Q,K,A).
 # Create a list of all possible playing cards, which is a deck.
 # Then create a function that shuffles the deck, producing a random order.
+suit_list = ['Heart', 'Diamond', 'Club', 'Spade']
+value_list = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
+
+playing_cards = []
+shuffled_deck = []
+
+for i in range(1):
+    for j in range(len(value_list)):
+        for k in range(4):
+            playing_cards.append([suit_list[k], value_list[j]])
+    print(playing_cards)
+
+def shuffle_deck():
+    for l in range(len(playing_cards)):
+        m = random.randrange(len(playing_cards))
+        shuffled_deck.append(playing_cards[m])
+        playing_cards.remove(playing_cards[m])
+
+shuffle_deck()
+print(shuffled_deck)
+
 
 
 # PROBLEM 3 (The sieve of Eratosthenes - 10pts)
@@ -36,6 +64,13 @@ not so good", "Very doubtful" ]
 # Process all the numbers of the list in this way. When you have finished,
 # the only numbers left on the list are primes.
 # Use this method to determine all the primes between 1 and 1000.
+
+number_list = []
+
+for i in range(1001):
+    number_list.append(i)
+    if number_list[i] == 1:
+        number_list[i] = 0
 
 # PROBLEM 4 (Tic-Tac-Toe - 15pts)
 # Write a Tic-Tac-Toe program that allows two people to play the game against each other.
