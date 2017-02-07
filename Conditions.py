@@ -11,27 +11,27 @@
 
 def grade():
     grade = int(input("Enter your grade between 0 and 100: "))
-    if grade >= 97 and grade <=100:
+    if grade >= 97:
         print("You have an A+.")
-    elif grade >= 93 and grade <= 96:
+    elif grade >= 93:
         print("You have an A.")
-    elif grade >= 90 and grade <= 92:
+    elif grade >= 90:
         print("You have an A-.")
-    elif grade >= 87 and grade <= 89:
+    elif grade >= 87:
         print("You have an B+.")
-    elif grade >= 83 and grade <= 86:
+    elif grade >= 83:
         print("You have an B.")
-    elif grade >= 80 and grade <= 82:
+    elif grade >= 80:
         print("You have an B-.")
-    elif grade >= 77 and grade <= 79:
+    elif grade >= 77:
         print("You have an C+.")
-    elif grade >= 73 and grade <= 76:
+    elif grade >= 73:
         print("You have an C.")
-    elif grade >= 70 and grade <= 72:
+    elif grade >= 70:
         print("You have an C-.")
-    elif grade >= 67 and grade <= 69:
+    elif grade >= 67:
         print("You have an D+.")
-    elif grade >= 65 and grade <= 66:
+    elif grade >= 65:
         print("You have an D.")
     elif grade < 65 and grade >= 0:
         print("You have an E/F.")

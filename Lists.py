@@ -72,6 +72,16 @@ for i in range(1001):
     if number_list[i] == 1:
         number_list[i] = 0
 
+print(number_list)
+
+for val in number_list:
+    if val != 0:
+        for i in range(len(number_list)):
+            if number_list[i] % val == 0 and number_list[i] != val:
+                number_list[i] = 0
+print(number_list)
+
+
 # PROBLEM 4 (Tic-Tac-Toe - 15pts)
 # Write a Tic-Tac-Toe program that allows two people to play the game against each other.
 # In turn, ask each player which row and column they want to play.
@@ -92,6 +102,129 @@ for i in range(1001):
 
 # The main program will be something along the lines of (in pseudo-code):
 # display board
+'''
+def draw_board(board):
+    print("   |   |")
+    print(" "+ board[1] + " | " + board[2] + " | " + board[3])
+    print("-------------")
+    print(" "+ board[4] + " | " + board[5] + " | " + board[6])
+    print("-------------")
+    print(" " + board[7] + " | " + board[8] + " | " + board[9])
+    print("   |   |")
+
+def input():
+    while True:
+        user_input = int(input("Enter the spot you would like to draw in (1-9): "))
+        if user_input >= 1 and user_input <= 9:
+            return user_input
+        else:
+            print("Error.")
+
+def win():
+    win = ((1,2,3), (4,5,6), (7,8,9), (1,5,9), (3,5,7), (1,4,7), (2,5,8), (3,6,9))
+    for val in win:
+
+'''
+
+row = ([1,2,3])
+column = ([1,2,3])
+move = []
+
+def draw_board(board):
+    print("   |   |")
+    print(" "+ board[0][0] + " | " + board[0][1] + " | " + board[0][2])
+    print("-------------")
+    print(" "+ board[1][0] + " | " + board[1][1] + " | " + board[1][2])
+    print("-------------")
+    print(" " + board[2][0] + " | " + board[2][1] + " | " + board[2][2])
+    print("   |   |")
+'''
+def input():
+    user_input_row = int(input("Enter a row (0-2): "))
+    user_input_column = int(input("Enter a column (0-2): "))
+    if user_input_row >= 1 and user_input_row <= 3:
+        return user_input_row
+    else:
+        print("Error")
+    if user_input_column >= 1 and user_input_row <= 3:
+        return user_input_column
+    else:
+        print("Error")
+'''
+
+board = [[" ", " ", " "],[" ", " ", " "],[" ", " ", " "]]
+total = 0
+
+def winner():
+    done = True
+
+    for i in range(3):
+        if board[i][0] == board[i][1] == board[i][2]:
+            if board[i][0] == "X":
+                print("X wins!")
+                done = False
+            elif board[i][0] == "O":
+                print("O wins!")
+                done = False
+
+    for i in range(3):
+        if board[0][i] == board[1][i] == board[2][i]:
+            if board[0][i] == "X":
+                print("X wins!")
+                done = False
+            elif board[0][i] == "O":
+                print("O wins!")
+                done = False
+
+    if board[0][0] == board[1][1] == board[2][2]:
+        if board[0][0] == "X":
+            print("X wins!")
+            done = False
+        elif board[0][0] == "O":
+            print("O wins!")
+            done = False
+
+
+    if board[0][2] == board[1][1] == board[2][0]:
+        if board[0][2] == "X":
+            print("X wins!")
+            done = False
+        elif board[0][2] == "O":
+            print("O wins!")
+            done = False
+
+    return done
+
+
+done = True
+player = 1
+
+while done:
+    user_input_row = int(input("Enter a row (0-2): "))
+    user_input_column = int(input("Enter a column (0-2): "))
+    if board[user_input_row][user_input_column] != " ":
+        print("Error. That space is taken")
+        continue
+    elif player == 1:
+        board[user_input_row][user_input_column] = "X"
+        total +=1
+        player = 2
+    elif player == 2:
+        board[user_input_row][user_input_column] = "O"
+        total +=1
+        player = 1
+    if total >= 9 and winner():
+        print("It's a tie!")
+        done = False
+    if not winner():
+        draw_board(board)
+        break
+
+    draw_board(board)
+
+
+
+
 # while True:
 #   ask for row
 #   ask for column
