@@ -72,8 +72,6 @@ for i in range(1001):
     if number_list[i] == 1:
         number_list[i] = 0
 
-print(number_list)
-
 for val in number_list:
     if val != 0:
         for i in range(len(number_list)):
