@@ -164,27 +164,35 @@ player = 1
 
 while done:
     user_input_row = int(input("Enter a row (0-2): "))
+
     if user_input_row > 2 or user_input_row < 0:
         print("Not in interval.")
         user_input_row = int(input("Enter a row (0-2): "))
+
     user_input_column = int(input("Enter a column (0-2): "))
+
     if user_input_column > 2 or user_input_column < 0:
         print("Not in interval.")
         user_input_column = int(input("Enter a column (0-2): "))
+
     if board[user_input_row][user_input_column] != " ":
         print("Error. That space is taken")
         continue
+
     elif player == 1:
         board[user_input_row][user_input_column] = "X"
         total +=1
         player = 2
+
     elif player == 2:
         board[user_input_row][user_input_column] = "O"
         total +=1
         player = 1
+
     if total >= 9 and winner():
         print("It's a tie!")
         done = False
+
     if not winner():
         draw_board(board)
         break
