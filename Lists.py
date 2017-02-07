@@ -102,29 +102,6 @@ print(number_list)
 
 # The main program will be something along the lines of (in pseudo-code):
 # display board
-'''
-def draw_board(board):
-    print("   |   |")
-    print(" "+ board[1] + " | " + board[2] + " | " + board[3])
-    print("-------------")
-    print(" "+ board[4] + " | " + board[5] + " | " + board[6])
-    print("-------------")
-    print(" " + board[7] + " | " + board[8] + " | " + board[9])
-    print("   |   |")
-
-def input():
-    while True:
-        user_input = int(input("Enter the spot you would like to draw in (1-9): "))
-        if user_input >= 1 and user_input <= 9:
-            return user_input
-        else:
-            print("Error.")
-
-def win():
-    win = ((1,2,3), (4,5,6), (7,8,9), (1,5,9), (3,5,7), (1,4,7), (2,5,8), (3,6,9))
-    for val in win:
-
-'''
 
 row = ([1,2,3])
 column = ([1,2,3])
@@ -138,19 +115,7 @@ def draw_board(board):
     print("-------------")
     print(" " + board[2][0] + " | " + board[2][1] + " | " + board[2][2])
     print("   |   |")
-'''
-def input():
-    user_input_row = int(input("Enter a row (0-2): "))
-    user_input_column = int(input("Enter a column (0-2): "))
-    if user_input_row >= 1 and user_input_row <= 3:
-        return user_input_row
-    else:
-        print("Error")
-    if user_input_column >= 1 and user_input_row <= 3:
-        return user_input_column
-    else:
-        print("Error")
-'''
+
 
 board = [[" ", " ", " "],[" ", " ", " "],[" ", " ", " "]]
 total = 0
@@ -201,7 +166,13 @@ player = 1
 
 while done:
     user_input_row = int(input("Enter a row (0-2): "))
+    if user_input_row > 2 or user_input_row < 0:
+        print("Not in interval.")
+        user_input_row = int(input("Enter a row (0-2): "))
     user_input_column = int(input("Enter a column (0-2): "))
+    if user_input_column > 2 or user_input_column < 0:
+        print("Not in interval.")
+        user_input_column = int(input("Enter a column (0-2): "))
     if board[user_input_row][user_input_column] != " ":
         print("Error. That space is taken")
         continue
